@@ -1,0 +1,15 @@
+{
+    "manifest_version": 1,
+  
+    "name": "Fact Check nwHacks",
+    "description": "Beta Version",
+    "version": "0.0",
+  
+    "browser_action": {
+     "default_icon": "icon.png",
+     "default_popup": "popup.html"
+    },
+    "permissions": [
+     "activeTab"
+     ]
+  }
