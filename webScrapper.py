@@ -7,11 +7,13 @@ page = requests.get(URL)
 
 # Setup BeatifulSoup web scrapper
 soup = BeautifulSoup(page.content, 'html.parser')
-results = soup.find(class_='story')
-lines = results.find_all("p")
+headline = soup.find("h1", class_="detailHeadline")
+
+story = soup.find(class_='story')
+lines = story.find_all("p")
 
 # Recombine html paragraphs into one string
-list_lines = []
+list_lines = [headline.get_text() + "\n"]
 for p in range(len(lines)):
     paragraph = lines[p].get_text()
     list_lines.append(paragraph)
