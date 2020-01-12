@@ -1,11 +1,9 @@
 import requests
 import json
+import textwrap
 from bs4 import BeautifulSoup
 
-with open('url.json') as json_file:
-    url = json.load(json_file)
-
-print(url)
+CHARACTER_LIMIT = 5000
 
 # Webiste url and requsting the html
 URL = "https://www.cbc.ca/news/canada/ottawa/shelley-kettles-skating-1.5401235"
@@ -25,4 +23,19 @@ for p in range(len(lines)):
     list_lines.append(paragraph)
     final_article = " ".join(list_lines)
 
-print(final_article)
+    final_article = final_article.replace(u'\xa0', u' ')
+    final_article = final_article.replace(u'\n', u'.')
+
+print(len(final_article))
+
+
+
+def prepare_key_phrases(article):
+    article_size = len(article)
+    if (article_size / CHARACTER_LIMIT > 0):
+        document = [article[i:i + CHARACTER_LIMIT] for i in range(0, article_size, CHARACTER_LIMIT)]
+    else:
+        document = [article]
+    return document
+
+print(prepare_key_phrases(final_article))
