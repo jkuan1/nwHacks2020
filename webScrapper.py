@@ -3,12 +3,12 @@ import json
 from bs4 import BeautifulSoup
 
 with open('url.json') as json_file:
-    url = json.load(json_file)
+    url = json.loads(json_file)
 
 print(url)
 
-# Webiste url and requsting the html
-URL = "https://www.cbc.ca/news/canada/ottawa/shelley-kettles-skating-1.5401235"
+# Website url and requsting the html
+URL = url
 page = requests.get(URL)
 
 # Setup BeatifulSoup web scrapper

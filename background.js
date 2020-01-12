@@ -1,10 +1,11 @@
-// chrome.runtime.onInstalled.addListener(function() {
-//     chrome.storage.sync.set({color: '#3aa757'}, function() {
-//       console.log("The color is green.");
-//     });
-//   });
-
 chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-    var url = tabs[0].url;
-    console.log(url);
+    var background_url = tabs[0].url;
+    console.log(background_url);
+    var string = JSON.stringify(background_url);
+
+    var fs = require('fs');
+    fs.writeFile("url.json", backgroun_url, function(err, result) {
+    if(err) console.log('error', err);
 });
+});
+
