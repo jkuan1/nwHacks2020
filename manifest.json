@@ -2,14 +2,22 @@
     "manifest_version": 2,
   
     "name": "Fact Check nwHacks",
-    "description": "Beta Version",
-    "version": "0.0",
+    "description": "I feel dumb",
+    "version": "1.0",
   
     "browser_action": {
      "default_icon": "blep.png",
      "default_popup": "popup.html"
     },
+
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+
     "permissions": [
+     "tabs",
+     "storage",
      "activeTab"
      ]
   }

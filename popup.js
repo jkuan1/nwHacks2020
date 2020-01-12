@@ -1,12 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var checkPageButton = document.getElementById('checkPage');
-    checkPageButton.addEventListener('click', function() {
-  
-        chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
-            console.log(tabs[0].url);
-        });
-        
-        location.href = 'http://www.google.com';
-    
-    }, false);
-  }, false);
+chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+    var url = tabs[0].url;
+    console.log(url);
+});
